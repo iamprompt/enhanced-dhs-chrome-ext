@@ -45,3 +45,12 @@ jobs:
           files: EDHS_${{ github.ref_name }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload to Chrome Web Store
+        uses: trmcnvn/chrome-addon@v2
+        with:
+          extension: ${{ contains(github.ref_name, 'pre') && secrets.EDHS_PRE_RELEASE_EXT_ID || secrets.EDHS_PROD_EXT_ID }}
+          zip: EDHS_${{ github.ref_name }}.zip
+          client-id: ${{ secrets.CHROME_CLIENT_ID }}
+          client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
+          refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
