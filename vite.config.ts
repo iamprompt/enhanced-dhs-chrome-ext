@@ -6,7 +6,9 @@ import manifest from './manifest.config'
 export default defineConfig(async ({ mode }) => {
   const { EDHS_MODE } = loadEnv(mode, process.cwd(), 'EDHS') as { EDHS_MODE: string }
 
-  const publicDir = ['STAGING', 'DEVELOPMENT', 'PRE-RELEASE', 'PRERELEASE'].includes(EDHS_MODE?.toUpperCase() || '')
+  const publicDir = ['DEVELOPMENT'].includes(EDHS_MODE?.toUpperCase() || '')
+    ? 'public/development'
+    : ['STAGING', 'PRE-RELEASE', 'PRERELEASE'].includes(EDHS_MODE?.toUpperCase() || '')
     ? 'public/prerelease'
     : 'public/production'
 
