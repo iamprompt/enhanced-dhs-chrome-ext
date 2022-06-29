@@ -1,16 +1,19 @@
 import { defineManifest } from '@crxjs/vite-plugin'
-import packageJson from './package.json'
-const { version } = packageJson
+import { loadEnv } from 'vite'
 
 export default defineManifest(async ({ command, mode }) => {
+  const { EDHS_VERSION } = loadEnv(mode, process.cwd(), 'EDHS') as { EDHS_VERSION: string }
+
+  const [major, minor, patch, label = '0'] = EDHS_VERSION.replace(/[^\d\n.-]/g, '').split(/[.-]/)
+
   return {
     manifest_version: 3,
     name: '__MSG_appName__',
     description: '__MSG_appDesc__',
     author: 'Supakarn Laorattanakul',
     default_locale: 'en',
-    version,
-    version_name: version,
+    version: `${major}.${minor}.${patch}.${label}`,
+    version_name: EDHS_VERSION,
     icons: {
       '32': 'assets/icons/enhanced_dhs32.png',
       '48': 'assets/icons/enhanced_dhs48.png',
