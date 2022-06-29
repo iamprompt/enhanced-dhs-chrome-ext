@@ -42,6 +42,6 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           prerelease: ${{ contains(github.ref_name, 'pre') }}
-          file: EDHS_${{ github.ref_name }}.zip
+          files: EDHS_${{ github.ref_name }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
