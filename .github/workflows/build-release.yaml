@@ -35,7 +35,7 @@ jobs:
           EDHS_MODE: ${{ contains(github.ref_name, 'pre') && 'PRERELEASE' || 'PRODUCTION' }}
 
       - name: Zip Artifact
-        run: zip -r EDHS_${{ github.ref_name }}.zip ./dist"
+        run: zip -r EDHS_${{ github.ref_name }}.zip "./dist"
 
       - name: Release
         uses: softprops/action-gh-release@v1
