@@ -1,0 +1,56 @@
+{
+  "appName": {
+    "message": "Enhanced Disney+ Hotstar"
+  },
+  "appDesc": {
+    "message": "Enhancing Disney+ Hotstar features for a better watching experiences"
+  },
+  "popupSubtitleTitle": {
+    "message": "Gaya penampilan sari kata"
+  },
+  "popupFontOptionTitle": {
+    "message": "Fon"
+  },
+  "popupFontSizeOptionTitle": {
+    "message": "Saiz fon"
+  },
+  "popupFontSizeNormalText": {
+    "message": "Biasa"
+  },
+  "popupFontSizeLargeText": {
+    "message": "Besar"
+  },
+  "popupFontSizeHugeText": {
+    "message": "Lagi besar"
+  },
+  "popupEdgeStyleOptionTitle": {
+    "message": "Gaya penampilan hujung"
+  },
+  "popupEdgeNoneText": {
+    "message": "Tiada"
+  },
+  "popupEdgeOutlineText": {
+    "message": "Garis Besar"
+  },
+  "popupEdgeDropShadowText": {
+    "message": "Bayangan"
+  },
+  "popupAdditionalSettingTitle": {
+    "message": "Tetapan lain"
+  },
+  "popupNoWatermarkText": {
+    "message": "Padam watermark"
+  },
+  "popupNoWatermarkDetail": {
+    "message": "Padamkan watermark Disney+ Hotstar dalam mod skrin penuh"
+  },
+  "popupRefreshText": {
+    "message": "Muat semula laman Disney+ Hotstar untuk melihat perubahan"
+  },
+  "popupCreditLeft": {
+    "message": "Dibuat dengan ❤️"
+  },
+  "popupCreditRight": {
+    "message": "by iamPrompt"
+  }
+}

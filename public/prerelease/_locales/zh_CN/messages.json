@@ -1,0 +1,56 @@
+{
+  "appName": {
+    "message": "Enhanced Disney+ Hotstar"
+  },
+  "appDesc": {
+    "message": "Enhancing Disney+ Hotstar features for a better watching experiences"
+  },
+  "popupSubtitleTitle": {
+    "message": "字幕外观"
+  },
+  "popupFontOptionTitle": {
+    "message": "字体"
+  },
+  "popupFontSizeOptionTitle": {
+    "message": "字体大小"
+  },
+  "popupFontSizeNormalText": {
+    "message": "中"
+  },
+  "popupFontSizeLargeText": {
+    "message": "大"
+  },
+  "popupFontSizeHugeText": {
+    "message": "巨"
+  },
+  "popupEdgeStyleOptionTitle": {
+    "message": "字体轮廓"
+  },
+  "popupEdgeNoneText": {
+    "message": "无"
+  },
+  "popupEdgeOutlineText": {
+    "message": "描边"
+  },
+  "popupEdgeDropShadowText": {
+    "message": "阴影"
+  },
+  "popupAdditionalSettingTitle": {
+    "message": "附加设置"
+  },
+  "popupNoWatermarkText": {
+    "message": "去水印"
+  },
+  "popupNoWatermarkDetail": {
+    "message": "将Disney+ Hotstar的水印在全屏模式中去除"
+  },
+  "popupRefreshText": {
+    "message": "刷新页面完成设置"
+  },
+  "popupCreditLeft": {
+    "message": "用爱发电 ❤️"
+  },
+  "popupCreditRight": {
+    "message": "by iamPrompt"
+  }
+}

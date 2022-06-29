@@ -1,0 +1,77 @@
+{
+  "appName": {
+    "message": "ยกระดับ Disney+ Hotstar"
+  },
+  "appDesc": {
+    "message": "ยกระดับฟีเจอร์ Disney+ Hotstar เพื่อประสบการณ์การดูที่ดียิ่งขึ้น"
+  },
+  "popupSubtitleTitle": {
+    "message": "รูปแบบซับไตเติล"
+  },
+  "popupFontOptionTitle": {
+    "message": "ฟอนต์"
+  },
+  "popupFontTextDefault": {
+    "message": "ค่าเริ่มต้น"
+  },
+  "popupFontTextThai": {
+    "message": "ภาษาไทย"
+  },
+  "popupFontTextEnglish": {
+    "message": "ภาษาอังกฤษ"
+  },
+  "popupFontTextChinese": {
+    "message": "ภาษาจีน"
+  },
+  "popupFontSizeOptionTitle": {
+    "message": "ขนาดฟอนต์"
+  },
+  "popupFontSizeNormalText": {
+    "message": "ปกติ"
+  },
+  "popupFontSizeLargeText": {
+    "message": "ใหญ่"
+  },
+  "popupFontSizeHugeText": {
+    "message": "มหึมา"
+  },
+  "popupEdgeStyleOptionTitle": {
+    "message": "รูปแบบขอบ"
+  },
+  "popupEdgeNoneText": {
+    "message": "ไม่มี"
+  },
+  "popupEdgeOutlineText": {
+    "message": "ขอบรอบตัวอักษร"
+  },
+  "popupEdgeDropShadowText": {
+    "message": "เงาพื้นหลัง"
+  },
+  "popupAdditionalSettingTitle": {
+    "message": "ตั้งค่าเพิ่มเติม"
+  },
+  "popupNoWatermarkText": {
+    "message": "ลบลายน้ำ"
+  },
+  "popupNoWatermarkDetail": {
+    "message": "ลบลายน้ำ Disney+ Hotstar ออกในโหมดเต็มหน้าจอ"
+  },
+  "popupRefreshText": {
+    "message": "รีเฟรชหน้าเว็บเพื่อแสดงผลเต็มรูปแบบ"
+  },
+  "popupCreditLeft": {
+    "message": "สร้างด้วย ❤️"
+  },
+  "popupCreditRight": {
+    "message": "โดย iamPrompt"
+  },
+  "popupOnlyWorkingDomain": {
+    "message": "ส่วนขยายนี้ทำงานเฉพาะบนโดเมน"
+  },
+  "popupHotstarCTA": {
+    "message": "ไปที่ hotstar.com"
+  },
+  "popupFontPositionOptionTitle": {
+    "message": "ตำแหน่ง (จากด้านล่าง)"
+  }
+}
