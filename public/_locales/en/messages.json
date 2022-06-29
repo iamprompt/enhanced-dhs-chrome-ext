@@ -1,0 +1,77 @@
+{
+  "appName": {
+    "message": "Enhanced Disney+ Hotstar"
+  },
+  "appDesc": {
+    "message": "Enhancing Disney+ Hotstar features for a better watching experiences"
+  },
+  "popupSubtitleTitle": {
+    "message": "Subtitle Appearance"
+  },
+  "popupFontOptionTitle": {
+    "message": "Font"
+  },
+  "popupFontTextDefault": {
+    "message": "Default"
+  },
+  "popupFontTextThai": {
+    "message": "Thai"
+  },
+  "popupFontTextEnglish": {
+    "message": "English"
+  },
+  "popupFontTextChinese": {
+    "message": "Chinese"
+  },
+  "popupFontSizeOptionTitle": {
+    "message": "Font Size"
+  },
+  "popupFontSizeNormalText": {
+    "message": "Normal"
+  },
+  "popupFontSizeLargeText": {
+    "message": "Large"
+  },
+  "popupFontSizeHugeText": {
+    "message": "Huge"
+  },
+  "popupEdgeStyleOptionTitle": {
+    "message": "Edge Style"
+  },
+  "popupEdgeNoneText": {
+    "message": "None"
+  },
+  "popupEdgeOutlineText": {
+    "message": "Outline"
+  },
+  "popupEdgeDropShadowText": {
+    "message": "Drop Shadow"
+  },
+  "popupAdditionalSettingTitle": {
+    "message": "Additional Setting"
+  },
+  "popupNoWatermarkText": {
+    "message": "No Watermark"
+  },
+  "popupNoWatermarkDetail": {
+    "message": "Get rid of Disney+ Hotstar watermark in fullscreen mode"
+  },
+  "popupRefreshText": {
+    "message": "Refresh the page to see the final result"
+  },
+  "popupCreditLeft": {
+    "message": "Made with ❤️"
+  },
+  "popupCreditRight": {
+    "message": "by iamPrompt"
+  },
+  "popupOnlyWorkingDomain": {
+    "message": "This extension only works on domain"
+  },
+  "popupHotstarCTA": {
+    "message": "Go to hotstar.com"
+  },
+  "popupFontPositionOptionTitle": {
+    "message": "Position (From Bottom)"
+  }
+}
