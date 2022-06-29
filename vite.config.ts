@@ -7,8 +7,8 @@ export default defineConfig(async ({ mode }) => {
   const { EDHS_MODE } = loadEnv(mode, process.cwd(), 'EDHS') as { EDHS_MODE: string }
 
   const publicDir = ['STAGING', 'DEVELOPMENT', 'PRE-RELEASE', 'PRERELEASE'].includes(EDHS_MODE?.toUpperCase() || '')
-    ? 'public-prerelease'
-    : 'public'
+    ? 'public/prerelease'
+    : 'public/production'
 
   return {
     publicDir,
