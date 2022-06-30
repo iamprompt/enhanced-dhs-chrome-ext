@@ -1,6 +1,6 @@
-import type { selectedOptions } from '../@types/options'
+import { selectedOptions } from '../../@types'
 
-export const defaultOptions: selectedOptions = {
+const DefaultOptions: selectedOptions = {
   fontFamily: 'Roboto',
   fontSize: 0,
   fontWeight: 400,
@@ -16,3 +16,5 @@ export const defaultOptions: selectedOptions = {
     color: 'black',
   },
 }
+
+export default DefaultOptions

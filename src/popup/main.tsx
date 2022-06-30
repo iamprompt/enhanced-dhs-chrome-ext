@@ -5,25 +5,25 @@ import ReactDOM from 'react-dom/client'
 import '../styles/tailwind.css'
 
 import { sendMessage } from 'webext-bridge'
-import {
-  EdgeStyleOptions,
-  FontOptions,
-  FontSizeOptions,
-  colorOptions,
-  fontWeightText,
-} from '../utils/options'
 import type { FontCategoryOptions, selectedOptions } from '../@types/options'
 
 import { getUserPreferences } from '../utils/chrome'
-import { defaultOptions } from '../utils/const'
 import Header from './components/header'
 import Footer from './components/footer'
 
 import NotCompatInfo from './components/notCompat'
+import {
+  ColorOptions,
+  EdgeStyleOptions,
+  FontOptions,
+  FontSizeOptions,
+  FontWeightText,
+} from '../config'
+import { DefaultOptions } from '../config'
 
 const App = () => {
   const [selectedOpt, setSelectedOpt] =
-    useState<selectedOptions>(defaultOptions)
+    useState<selectedOptions>(DefaultOptions)
   const [isLoaded, setLoaded] = useState<boolean>(false)
   const [isChanged, setChanged] = useState<boolean>(false)
   const [activeTab, setActiveTab] = useState<chrome.tabs.Tab>()
@@ -155,7 +155,7 @@ const App = () => {
                           key={`${selectedOpt.fontFamily}-${w}`}
                           value={w}
                         >
-                          {fontWeightText[w]}
+                          {FontWeightText[w]}
                         </option>
                       )
                     })}
@@ -170,7 +170,7 @@ const App = () => {
 
               {isColorPickerOpen && (
                 <div className="mt-2 grid grid-cols-5 gap-1">
-                  {colorOptions.map((c) => {
+                  {ColorOptions.map((c) => {
                     return (
                       <div
                         key={c}
