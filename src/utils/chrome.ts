@@ -9,9 +9,9 @@ export const getUserPreferences = async () => {
 export const handleInstall = async (
   details: chrome.runtime.InstalledDetails
 ) => {
-  const existUserPrefs = (await getUserPreferences()) || {}
+  const existingUserPreferences = (await getUserPreferences()) || {}
   chrome.storage.local.set({
-    options: { ...defaultOptions, ...existUserPrefs },
+    options: { ...defaultOptions, ...existingUserPreferences },
   })
 }
 

@@ -155,10 +155,10 @@ const getStyleSheet = async () => {
  * Receive the signal when the users have changed their display mode (light/dark)
  */
 onMessage('updatePreferences', async ({ data }) => {
-  const dhsInjectElems = document.querySelectorAll('[enhanced-dhs]')
-  if (dhsInjectElems.length > 0) {
+  const dhsInjectElements = document.querySelectorAll('[enhanced-dhs]')
+  if (dhsInjectElements.length > 0) {
     // Remove All previous stylesheet
-    for (const elem of dhsInjectElems) elem.remove()
+    for (const elem of dhsInjectElements) elem.remove()
   }
 
   document.head.append(await getStyleSheet()) // Append Changed Stylesheet
