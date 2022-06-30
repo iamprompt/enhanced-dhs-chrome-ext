@@ -1,11 +1,9 @@
-import type {
-  edgeStyleOptions,
-  fontFamilyOptions,
-  fontSizeOptions,
-  fontWeightsText,
-} from '../@types/options'
+import { fontFamilyOptions } from '../../@types'
 
-export const FontOptions: fontFamilyOptions = {
+/**
+ * Default Font Settings
+ */
+const FontOptions: fontFamilyOptions = {
   Roboto: {
     title: 'Roboto',
     weight: [100, 300, 400, 500, 700, 900],
@@ -308,62 +306,4 @@ export const FontOptions: fontFamilyOptions = {
   },
 }
 
-export const FontSizeOptions: fontSizeOptions = {
-  normal: {
-    text: 'Normal',
-    classText: 'text-sm',
-    plusSize: 0,
-    textLocale: 'popupFontSizeNormalText',
-  },
-  large: {
-    text: 'Large',
-    classText: 'text-base',
-    plusSize: 25,
-    textLocale: 'popupFontSizeLargeText',
-  },
-  huge: {
-    text: 'Huge',
-    classText: 'text-xl',
-    plusSize: 50,
-    textLocale: 'popupFontSizeHugeText',
-  },
-}
-
-export const EdgeStyleOptions: edgeStyleOptions = {
-  none: { text: 'None', textLocale: 'popupEdgeNoneText' },
-  outline: {
-    text: 'Outline',
-    textLocale: 'popupEdgeOutlineText',
-    cssStyle: (color: string) =>
-      `text-shadow: -3px -3px 0 ${color}, 0 -3px 0 ${color}, 3px -3px 0 ${color}, 3px 0 0 ${color}, 3px 3px 0 ${color}, 0 3px 0 ${color}, -3px 3px 0 ${color}, -3px 0 0 ${color};`,
-  },
-  dropShadow: {
-    text: 'Drop Shadow',
-    textLocale: 'popupEdgeDropShadowText',
-    cssStyle: (color: string) =>
-      `text-shadow: ${color} 2px 2px 2.5px, ${color} 2px 2px 3.5px, ${color} 2px 2px 4.5px`,
-  },
-}
-
-export const fontWeightText: fontWeightsText = {
-  100: 'Thin',
-  200: 'Extra Light',
-  300: 'Light',
-  400: 'Regular',
-  500: 'Medium',
-  600: 'Semi Bold',
-  700: 'Bold',
-  800: 'Extra Bold',
-  900: 'Black',
-}
-
-export const colorOptions: string[] = [
-  '#FFFFFF',
-  '#000000',
-  '#E50914',
-  '#FCBE11',
-  '#0000C8',
-  '#FF01B3',
-  '#00C800',
-  '#009FDA',
-]
+export default FontOptions

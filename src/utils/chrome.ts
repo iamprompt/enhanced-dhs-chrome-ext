@@ -1,5 +1,5 @@
 import type { selectedOptions } from '../@types/options'
-import { defaultOptions } from './const'
+import { DefaultOptions } from '../config'
 
 export const getUserPreferences = async () => {
   const data = await chrome.storage.local.get(['options'])
@@ -11,7 +11,7 @@ export const handleInstall = async (
 ) => {
   const existingUserPreferences = (await getUserPreferences()) || {}
   chrome.storage.local.set({
-    options: { ...defaultOptions, ...existingUserPreferences },
+    options: { ...DefaultOptions, ...existingUserPreferences },
   })
 }
 

@@ -1,9 +1,12 @@
 import { onMessage, sendMessage } from 'webext-bridge'
-import { EdgeStyleOptions, FontOptions } from '../utils/options'
 import type { selectedOptions } from '../@types/options'
 import { getLinkHTMLHeader } from '../utils/htmlElements'
-import vdoClassSelector from '../utils/classSubtitle'
-import { defaultOptions } from '../utils/const'
+import {
+  DefaultOptions,
+  EdgeStyleOptions,
+  FontOptions,
+  VideoClassSelector,
+} from '../config'
 
 /**
  * Changing the action icon depending on Dark/Light mode
@@ -45,15 +48,13 @@ const getSelectedOptionsStorage = () => {
 const getStyleSheet = async () => {
   const selectedOptions = await getSelectedOptionsStorage()
 
-  // console.log('selectedOptions', selectedOptions)
-
   // Create Style Tag for override elements' style
   const styleCSS = document.createElement('style')
 
   styleCSS.setAttribute('enhanced-dhs', '')
 
   const selectedOpt = {
-    ...defaultOptions,
+    ...DefaultOptions,
     font: FontOptions[selectedOptions.fontFamily],
     fontSize: selectedOptions.fontSize,
     fontWeight: selectedOptions.fontWeight,
@@ -64,7 +65,6 @@ const getStyleSheet = async () => {
     noWatermark: selectedOptions.noWatermark,
     edgeStyle: EdgeStyleOptions[selectedOptions.edgeStyle?.style],
   }
-  // console.log(selectedOpt)
 
   styleCSS.textContent += '.shaka-text-container {display: flex !important;}'
 
@@ -95,45 +95,45 @@ const getStyleSheet = async () => {
         document.head.append(fontStyleSheet)
       })
 
-      styleCSS.textContent += `${vdoClassSelector.subtitleSpanText} {font-family: ${selectedOpt.font.fontFamily} !important; font-weight: ${selectedOpt.fontWeight} !important;}` // Change Subtitle Font
+      styleCSS.textContent += `${VideoClassSelector.subtitleSpanText} {font-family: ${selectedOpt.font.fontFamily} !important; font-weight: ${selectedOpt.fontWeight} !important;}` // Change Subtitle Font
     }
   }
 
-  styleCSS.textContent += `${vdoClassSelector.subtitleSpanText} {color: ${
+  styleCSS.textContent += `${VideoClassSelector.subtitleSpanText} {color: ${
     selectedOpt.fontColor || '#FFFFFF'
   } !important;}` // Change Subtitle Color
 
   // if (selectedOpt.subtitleBgStatus) {
-  styleCSS.textContent += `${vdoClassSelector.subtitleSpanText} {background-color: rgba(0,0,0,${selectedOpt.subtitleBgOpacity}) !important; border-radius: 1rem; padding: 1rem 2rem;}` // Change Subtitle Background Opacity
+  styleCSS.textContent += `${VideoClassSelector.subtitleSpanText} {background-color: rgba(0,0,0,${selectedOpt.subtitleBgOpacity}) !important; border-radius: 1rem; padding: 1rem 2rem;}` // Change Subtitle Background Opacity
   // }
 
   // Add Transparent Subtitle Background
   // styleCSS.textContent += `${vdoClassSelector.subtitleSpanText} {background-color: transparent !important;}`
 
   // Arrange Position of Subtitle
-  styleCSS.textContent += `${vdoClassSelector.subtitleTextContainer} {bottom: ${
-    selectedOpt.fontPosition + 10
-  }% !important;}`
+  styleCSS.textContent += `${
+    VideoClassSelector.subtitleTextContainer
+  } {bottom: ${selectedOpt.fontPosition + 10}% !important;}`
 
   if (selectedOpt.fontSize) {
     styleCSS.textContent += `${
-      vdoClassSelector.subtitleContainer
+      VideoClassSelector.subtitleContainer
     } {font-size: ${
       28 + selectedOpt.fontSize
     }px !important;} @media (max-width: 768px) {${
-      vdoClassSelector.subtitleContainer
+      VideoClassSelector.subtitleContainer
     } {font-size: ${16 + selectedOpt.fontSize}px !important;}}`
   }
 
   if (selectedOpt.edgeStyle) {
     const cssEdgeStyle = selectedOpt.edgeStyle.cssStyle?.('black')
     if (cssEdgeStyle)
-      styleCSS.textContent += `${vdoClassSelector.subtitleSpanText} {${cssEdgeStyle}}`
+      styleCSS.textContent += `${VideoClassSelector.subtitleSpanText} {${cssEdgeStyle}}`
   }
 
   if (selectedOpt.noWatermark) {
     // Remove D+HS Icon in fullscreen
-    styleCSS.textContent += `${vdoClassSelector.vdoWatermark} {display: none !important;}`
+    styleCSS.textContent += `${VideoClassSelector.vdoWatermark} {display: none !important;}`
   }
 
   return styleCSS
