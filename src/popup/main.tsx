@@ -5,7 +5,13 @@ import ReactDOM from 'react-dom/client'
 import '../styles/tailwind.css'
 
 import { sendMessage } from 'webext-bridge'
-import { EdgeStyleOptions, FontOptions, FontSizeOptions, colorOptions, fontWeightText } from '../utils/options'
+import {
+  EdgeStyleOptions,
+  FontOptions,
+  FontSizeOptions,
+  colorOptions,
+  fontWeightText,
+} from '../utils/options'
 import type { FontCategoryOptions, selectedOptions } from '../@types/options'
 
 import { getUserPreferences } from '../utils/chrome'
@@ -16,7 +22,8 @@ import Footer from './components/footer'
 import NotCompatInfo from './components/notCompat'
 
 const App = () => {
-  const [selectedOpt, setSelectedOpt] = useState<selectedOptions>(defaultOptions)
+  const [selectedOpt, setSelectedOpt] =
+    useState<selectedOptions>(defaultOptions)
   const [isLoaded, setLoaded] = useState<boolean>(false)
   const [isChanged, setChanged] = useState<boolean>(false)
   const [activeTab, setActiveTab] = useState<chrome.tabs.Tab>()
@@ -47,9 +54,15 @@ const App = () => {
       // console.log(selectedOpt)
       chrome.storage.local.set({ options: selectedOpt })
 
-      if (isLoaded && !isChanged) setChanged(true)
+      if (isLoaded && !isChanged) {
+        setChanged(true)
+      }
 
-      sendMessage('updatePreferences', { preferencesChange: true }, { context: 'content-script', tabId: activeTab.id })
+      sendMessage(
+        'updatePreferences',
+        { preferencesChange: true },
+        { context: 'content-script', tabId: activeTab.id }
+      )
     }
   }, [selectedOpt])
 
@@ -60,7 +73,8 @@ const App = () => {
       fontWeight: FontOptions[e.target.value].defaultFontWeight,
     }))
 
-  const fontSizeSelHandler = (selectedSize: number) => setSelectedOpt((prev) => ({ ...prev, fontSize: selectedSize }))
+  const fontSizeSelHandler = (selectedSize: number) =>
+    setSelectedOpt((prev) => ({ ...prev, fontSize: selectedSize }))
 
   const fontPosition = (selectedPosition: number) =>
     setSelectedOpt((prev) => ({ ...prev, fontPosition: selectedPosition }))
@@ -82,7 +96,8 @@ const App = () => {
     <div className="w-72 relative">
       <Header />
       <div className="pt-14 pb-12 text-black bg-gray-50 dark:text-white dark:from-[#192133] dark:to-[#111826] dark:bg-gradient-to-b">
-        {activeTab?.url?.search('hotstar.com') !== -1 || activeTab?.url?.search('dev=1') !== -1 ? (
+        {activeTab?.url?.search('hotstar.com') !== -1 ||
+        activeTab?.url?.search('dev=1') !== -1 ? (
           <div id="content" className="p-3 flex flex-col space-y-3">
             <h2 id="subtitle-title" className="font-bold text-2xl">
               {chrome.i18n.getMessage('popupSubtitleTitle')}
@@ -102,7 +117,12 @@ const App = () => {
               >
                 {Object.entries(FontCategoryOptions).map(([key, val]) => {
                   return (
-                    <optgroup key={key} label={chrome.i18n.getMessage(`popupFontText${key}`) || key}>
+                    <optgroup
+                      key={key}
+                      label={
+                        chrome.i18n.getMessage(`popupFontText${key}`) || key
+                      }
+                    >
                       {Object.entries(val).map(([k, v]) => {
                         return (
                           <option key={k} value={k}>
@@ -131,7 +151,10 @@ const App = () => {
                   <optgroup label={FontOptions[selectedOpt.fontFamily].title}>
                     {FontOptions[selectedOpt.fontFamily].weight.map((w) => {
                       return (
-                        <option key={`${selectedOpt.fontFamily}-${w}`} value={w}>
+                        <option
+                          key={`${selectedOpt.fontFamily}-${w}`}
+                          value={w}
+                        >
                           {fontWeightText[w]}
                         </option>
                       )
@@ -159,7 +182,9 @@ const App = () => {
                         }}
                       >
                         {selectedOpt.fontColor === c && (
-                          <span className="material-icons-round text-gray-300 select-none">check</span>
+                          <span className="material-icons-round text-gray-300 select-none">
+                            check
+                          </span>
                         )}
                       </div>
                     )
@@ -210,7 +235,8 @@ const App = () => {
 
             <div id="font-position-arrange">
               <h3 className="font-bold text-lg text-gray-900 dark:text-gray-50">
-                {chrome.i18n.getMessage('popupSubtitleBgOptionTitle') || `Subtitle Background Opacity`}
+                {chrome.i18n.getMessage('popupSubtitleBgOptionTitle') ||
+                  `Subtitle Background Opacity`}
               </h3>
               <div className="mt-3 grid grid-cols-12 gap-x-2">
                 <input
@@ -232,7 +258,8 @@ const App = () => {
 
             <div id="font-position-arrange">
               <h3 className="font-bold text-lg text-gray-900 dark:text-gray-50">
-                {chrome.i18n.getMessage('popupFontPositionOptionTitle') || `Position`}
+                {chrome.i18n.getMessage('popupFontPositionOptionTitle') ||
+                  `Position`}
               </h3>
               <div className="mt-3 grid grid-cols-12 gap-x-2">
                 <input
@@ -270,7 +297,9 @@ const App = () => {
                   {Object.entries(EdgeStyleOptions).map(([key, val]) => {
                     return (
                       <option value={key} key={key}>
-                        {val.textLocale ? chrome.i18n.getMessage(val.textLocale as string) : val.text}
+                        {val.textLocale
+                          ? chrome.i18n.getMessage(val.textLocale as string)
+                          : val.text}
                       </option>
                     )
                   })}
@@ -300,7 +329,10 @@ const App = () => {
                     />
                   </div>
                   <div className="ml-3 text-sm">
-                    <label htmlFor="NoWatermark" className="font-medium text-gray-700 dark:text-gray-50">
+                    <label
+                      htmlFor="NoWatermark"
+                      className="font-medium text-gray-700 dark:text-gray-50"
+                    >
                       {chrome.i18n.getMessage('popupNoWatermarkText')}
                     </label>
                     <p className="text-gray-500 dark:text-gray-100">

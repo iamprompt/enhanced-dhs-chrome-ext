@@ -1,4 +1,9 @@
-import type { edgeStyleOptions, fontFamilyOptions, fontSizeOptions, fontWeightsText } from '../@types/options'
+import type {
+  edgeStyleOptions,
+  fontFamilyOptions,
+  fontSizeOptions,
+  fontWeightsText,
+} from '../@types/options'
 
 export const FontOptions: fontFamilyOptions = {
   Roboto: {
@@ -227,7 +232,9 @@ export const FontOptions: fontFamilyOptions = {
     defaultFontWeight: 400,
     category: 'Thai',
     fontFamily: '"Anakotmai", system-ui, sans-serif',
-    libUrl: ['https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/Anakotmai/Anakotmai.css'],
+    libUrl: [
+      'https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/Anakotmai/Anakotmai.css',
+    ],
   },
   Anuphan: {
     title: 'Anuphan — อนุพันธ์',
@@ -235,7 +242,9 @@ export const FontOptions: fontFamilyOptions = {
     defaultFontWeight: 400,
     category: 'Thai',
     fontFamily: '"Anuphan", system-ui, sans-serif',
-    libUrl: ['https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/Anuphan/Anuphan.css'],
+    libUrl: [
+      'https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/Anuphan/Anuphan.css',
+    ],
   },
   'Chulabhorn+Likit+Text': {
     title: 'Chulabhorn Likit Text — จุฬาภรณ์ลิขิต (เนื้อความ)',
@@ -263,7 +272,9 @@ export const FontOptions: fontFamilyOptions = {
     defaultFontWeight: 400,
     category: 'Thai',
     fontFamily: '"Droid Sans Thai", system-ui, sans-serif',
-    libUrl: ['https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/DroidSansThai/DroidSansThai.css'],
+    libUrl: [
+      'https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/DroidSansThai/DroidSansThai.css',
+    ],
   },
   Boon: {
     title: 'Boon — บุญ',
@@ -271,7 +282,9 @@ export const FontOptions: fontFamilyOptions = {
     defaultFontWeight: 400,
     category: 'Thai',
     fontFamily: '"Boon", system-ui, sans-serif',
-    libUrl: ['https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/Boon/Boon.css'],
+    libUrl: [
+      'https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/Boon/Boon.css',
+    ],
   },
   'Boon+Jot': {
     title: 'BoonJot — บุญจด',
@@ -279,7 +292,9 @@ export const FontOptions: fontFamilyOptions = {
     defaultFontWeight: 400,
     category: 'Thai',
     fontFamily: '"BoonJot", system-ui, sans-serif',
-    libUrl: ['https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/BoonJot/BoonJot.css'],
+    libUrl: [
+      'https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/BoonJot/BoonJot.css',
+    ],
   },
   'Boon+Took': {
     title: 'BoonTook — บุญถึก',
@@ -287,7 +302,9 @@ export const FontOptions: fontFamilyOptions = {
     defaultFontWeight: 400,
     category: 'Thai',
     fontFamily: '"BoonTook Mon", system-ui, sans-serif',
-    libUrl: ['https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/BoonTookMon/BoonTookMon.css'],
+    libUrl: [
+      'https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@6/fonts/BoonTookMon/BoonTookMon.css',
+    ],
   },
 }
 
@@ -323,7 +340,8 @@ export const EdgeStyleOptions: edgeStyleOptions = {
   dropShadow: {
     text: 'Drop Shadow',
     textLocale: 'popupEdgeDropShadowText',
-    cssStyle: (color: string) => `text-shadow: ${color} 2px 2px 2.5px, ${color} 2px 2px 3.5px, ${color} 2px 2px 4.5px`,
+    cssStyle: (color: string) =>
+      `text-shadow: ${color} 2px 2px 2.5px, ${color} 2px 2px 3.5px, ${color} 2px 2px 4.5px`,
   },
 }
 

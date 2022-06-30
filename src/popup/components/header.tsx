@@ -7,7 +7,9 @@ const Header = () => {
       id="header"
     >
       <img src={DIcon} alt="Disney" className="h-6" />
-      <h1 className="font-bold text-white ml-2 text-lg">{chrome.i18n.getMessage('appName')}</h1>
+      <h1 className="font-bold text-white ml-2 text-lg">
+        {chrome.i18n.getMessage('appName')}
+      </h1>
     </div>
   )
 }

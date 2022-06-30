@@ -7,7 +7,9 @@ export const getGoogleFontCSSUrl = (
     // console.log(font)
 
     url += `&family=${font}`
-    if (weight) url += `:wght@${weight.join(';')}`
+    if (weight) {
+      url += `:wght@${weight.join(';')}`
+    }
   }
   return url
 }
