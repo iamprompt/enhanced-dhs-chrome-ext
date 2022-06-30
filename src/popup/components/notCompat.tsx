@@ -2,8 +2,11 @@ const NotCompatInfo = ({ activeTabId }: { activeTabId: number }) => {
   return (
     <div className="p-3 flex flex-col space-y-3 justify-center items-center">
       <h2 className="text-base text-center">
-        {chrome.i18n.getMessage('popupOnlyWorkingDomain') || `This extension only works on`}{' '}
-        <span className="font-bold text-blue-900 dark:text-blue-500">*.hotstar.com</span>
+        {chrome.i18n.getMessage('popupOnlyWorkingDomain') ||
+          `This extension only works on`}{' '}
+        <span className="font-bold text-blue-900 dark:text-blue-500">
+          *.hotstar.com
+        </span>
       </h2>
 
       <div

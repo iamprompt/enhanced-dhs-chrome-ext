@@ -1,7 +1,7 @@
 import { onMessage, sendMessage } from 'webext-bridge'
 import { EdgeStyleOptions, FontOptions } from '../utils/options'
 import type { selectedOptions } from '../@types/options'
-import { getlinkHTMLHeader } from '../utils/htmlElems'
+import { getLinkHTMLHeader } from '../utils/htmlElements'
 import vdoClassSelector from '../utils/classSubtitle'
 import { defaultOptions } from '../utils/const'
 
@@ -73,16 +73,16 @@ const getStyleSheet = async () => {
     if (selectedOpt.font) {
       // Add Google Font Stylesheet
       if (selectedOpt.font.isGoogleFont) {
-        const preloadGstatic = getlinkHTMLHeader.preloadFontGstatic()
-        const fontStyleSheet = getlinkHTMLHeader.loadStyleSheet.googleFont(
+        const preloadGStatic = getLinkHTMLHeader.preloadFontGStatic()
+        const fontStyleSheet = getLinkHTMLHeader.loadStyleSheet.googleFont(
           [selectedOptions.fontFamily],
           FontOptions[selectedOptions.fontFamily].weight
         )
-        document.head.append(preloadGstatic, fontStyleSheet)
+        document.head.append(preloadGStatic, fontStyleSheet)
       }
 
       if (selectedOpt.font.additionalGoogleFonts) {
-        const fontStyleSheet = getlinkHTMLHeader.loadStyleSheet.googleFont(
+        const fontStyleSheet = getLinkHTMLHeader.loadStyleSheet.googleFont(
           selectedOpt.font.additionalGoogleFonts,
           FontOptions[selectedOptions.fontFamily].weight
         )
@@ -91,7 +91,7 @@ const getStyleSheet = async () => {
 
       // Add Additional Font Stylesheet
       selectedOpt.font.libUrl?.forEach((url: string) => {
-        const fontStyleSheet = getlinkHTMLHeader.loadStyleSheet.url(url)
+        const fontStyleSheet = getLinkHTMLHeader.loadStyleSheet.url(url)
         document.head.append(fontStyleSheet)
       })
 
@@ -152,15 +152,13 @@ const getStyleSheet = async () => {
 })()
 
 /**
- * Recieve the signal when the users have changed their display mode (light/dark)
+ * Receive the signal when the users have changed their display mode (light/dark)
  */
 onMessage('updatePreferences', async ({ data }) => {
   const dhsInjectElems = document.querySelectorAll('[enhanced-dhs]')
   if (dhsInjectElems.length > 0) {
     // Remove All previous stylesheet
-    for (const elem of dhsInjectElems) {
-      elem.remove()
-    }
+    for (const elem of dhsInjectElems) elem.remove()
   }
 
   document.head.append(await getStyleSheet()) // Append Changed Stylesheet
