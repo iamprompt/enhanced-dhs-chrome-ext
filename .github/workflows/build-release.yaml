@@ -33,7 +33,7 @@ jobs:
         run: yarn build
         env:
           EDHS_VERSION: ${{ steps.set_version.outputs.version }}
-          EDHS_MODE: ${{ secret.EDHS_MODE }}
+          EDHS_MODE: ${{ secrets.EDHS_MODE }}
 
       - name: Zip Artifact
         run: zip -r EDHS_${{ github.ref_name }}.zip "./dist"
