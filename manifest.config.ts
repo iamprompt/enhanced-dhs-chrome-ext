@@ -2,9 +2,14 @@ import { defineManifest } from '@crxjs/vite-plugin'
 import { loadEnv } from 'vite'
 
 export default defineManifest(async ({ command, mode }) => {
-  const { EDHS_VERSION } = loadEnv(mode, process.cwd(), 'EDHS') as { EDHS_VERSION: string }
+  const { EDHS_VERSION } = loadEnv(mode, process.cwd(), 'EDHS') as {
+    EDHS_VERSION: string
+  }
 
-  const [major, minor, patch, label = '0'] = EDHS_VERSION.replace(/[^\d\n.-]/g, '').split(/[.-]/)
+  const [major, minor, patch, label = '0'] = EDHS_VERSION.replace(
+    /[^\d\n.-]/g,
+    ''
+  ).split(/[.-]/)
 
   return {
     manifest_version: 3,
@@ -21,7 +26,7 @@ export default defineManifest(async ({ command, mode }) => {
       '128': 'assets/icons/enhanced_dhs128.png',
       '256': 'assets/icons/enhanced_dhs256.png',
     },
-    permissions: ['storage', 'activeTab'],
+    permissions: ['storage'],
     host_permissions: ['https://*.hotstar.com/*', 'https://hotstar.com/*'],
     background: {
       service_worker: 'src/serviceWorker/index.ts',
