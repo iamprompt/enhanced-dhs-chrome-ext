@@ -8,7 +8,7 @@ on:
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
-    environment: PRODUCTION
+    environment: ${{ contains(github.ref_name, 'pre') && 'PRERELEASE' || 'PRODUCTION' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -33,7 +33,7 @@ jobs:
         run: yarn build
         env:
           EDHS_VERSION: ${{ steps.set_version.outputs.version }}
-          EDHS_MODE: ${{ contains(github.ref_name, 'pre') && 'PRERELEASE' || 'PRODUCTION' }}
+          EDHS_MODE: ${{ secret.EDHS_MODE }}
 
       - name: Zip Artifact
         run: zip -r EDHS_${{ github.ref_name }}.zip "./dist"
@@ -50,7 +50,7 @@ jobs:
       - name: Upload to Chrome Web Store
         uses: trmcnvn/chrome-addon@v2
         with:
-          extension: ${{ contains(github.ref_name, 'pre') && secrets.EDHS_PRE_RELEASE_EXT_ID || secrets.EDHS_PROD_EXT_ID }}
+          extension: ${{ secrets.EDHS_EXT_ID }}
           zip: EDHS_${{ github.ref_name }}.zip
           client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
           client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
