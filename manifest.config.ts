@@ -7,7 +7,7 @@ export default defineManifest(async ({ command, mode }) => {
   }
 
   const [major, minor, patch, label = '0'] = EDHS_VERSION.replace(
-    /[^\d\n.-]/g,
+    /[^\d\n.]/g,
     ''
   ).split(/[.-]/)
 
