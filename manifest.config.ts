@@ -27,7 +27,12 @@ export default defineManifest(async ({ command, mode }) => {
       '256': 'assets/icons/enhanced_dhs256.png',
     },
     permissions: ['storage'],
-    host_permissions: ['https://*.hotstar.com/*', 'https://hotstar.com/*'],
+    host_permissions: [
+      'https://*.hotstar.com/*',
+      'https://hotstar.com/*',
+      'https://*.apps.disneyplus.com/*',
+      'https://apps.disneyplus.com/*',
+    ],
     background: {
       service_worker: 'src/serviceWorker/index.ts',
       type: 'module',
@@ -35,7 +40,12 @@ export default defineManifest(async ({ command, mode }) => {
     content_scripts: [
       {
         js: ['src/contentScript/index.ts'],
-        matches: ['https://*.hotstar.com/*', 'https://hotstar.com/*'],
+        matches: [
+          'https://*.hotstar.com/*',
+          'https://hotstar.com/*',
+          'https://*.apps.disneyplus.com/*',
+          'https://apps.disneyplus.com/*',
+        ],
       },
     ],
     action: {

@@ -97,6 +97,7 @@ const App = () => {
       <Header />
       <div className="pt-14 pb-12 text-black bg-gray-50 dark:text-white dark:from-[#192133] dark:to-[#111826] dark:bg-gradient-to-b">
         {activeTab?.url?.search('hotstar.com') !== -1 ||
+        activeTab?.url?.search('apps.disneyplus.com') !== -1 ||
         activeTab?.url?.search('dev=1') !== -1 ? (
           <div id="content" className="p-3 flex flex-col space-y-3">
             <h2 id="subtitle-title" className="font-bold text-2xl">

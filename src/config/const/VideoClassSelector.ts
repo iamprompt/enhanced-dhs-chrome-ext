@@ -1,6 +1,6 @@
 export const VideoClassSelector = {
   vdoWatermark: '.watermark-content',
-  subtitleSpanText: '.subtitle-container .shaka-text-container span',
+  subtitleSpanText: '.shaka-text-container span',
   subtitleTextContainer:
     '.subtitle-container .cues-container .shaka-text-container',
   subtitleContainer: '.subtitle-container',

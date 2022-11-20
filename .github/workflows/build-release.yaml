@@ -22,15 +22,37 @@ jobs:
             const version = tag.replace('v', '')
             core.setOutput('version', version)
 
-      - name: Setup Node 16
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
-          cache: 'yarn'
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+          node-version: 16
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Build Extension
-        run: yarn build
+        run: pnpm build
         env:
           EDHS_VERSION: ${{ steps.set_version.outputs.version }}
           EDHS_MODE: ${{ secrets.EDHS_MODE }}
