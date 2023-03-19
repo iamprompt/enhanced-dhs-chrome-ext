@@ -143,6 +143,8 @@ const getStyleSheet = async () => {
  * Run for the first load
  */
 ;(async () => {
+  document.documentElement.lang = ''
+
   const resetStyleSheet = document.createElement('style')
   resetStyleSheet.id = 'enhancedDHS-reset'
   resetStyleSheet.textContent +=
