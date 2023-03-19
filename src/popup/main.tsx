@@ -1,4 +1,4 @@
-import type { ChangeEvent } from 'react'
+import { ChangeEvent, useMemo } from 'react'
 import { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 
@@ -20,6 +20,7 @@ import {
   FontWeightText,
 } from '../config'
 import { DefaultOptions } from '../config'
+import { BuyMeACoffeeButton } from './components/buyMeACoffee'
 
 const App = () => {
   const [selectedOpt, setSelectedOpt] =
@@ -92,13 +93,20 @@ const App = () => {
     }
   }
 
+  const supportedUrl = ['hotstar.com', 'apps.disneyplus.com', 'dev=1']
+  const isSupported = useMemo(
+    () =>
+      activeTab?.url
+        ? supportedUrl.some((url) => activeTab.url?.search(url) !== -1)
+        : false,
+    [activeTab]
+  )
+
   return (
     <div className="w-72 relative">
       <Header />
       <div className="pt-14 pb-12 text-black bg-gray-50 dark:text-white dark:from-[#192133] dark:to-[#111826] dark:bg-gradient-to-b">
-        {activeTab?.url?.search('hotstar.com') !== -1 ||
-        activeTab?.url?.search('apps.disneyplus.com') !== -1 ||
-        activeTab?.url?.search('dev=1') !== -1 ? (
+        {isSupported ? (
           <div id="content" className="p-3 flex flex-col space-y-3">
             <h2 id="subtitle-title" className="font-bold text-2xl">
               {chrome.i18n.getMessage('popupSubtitleTitle')}
@@ -367,8 +375,12 @@ const App = () => {
             )}
           </div>
         ) : (
-          <NotCompatInfo activeTabId={activeTab.id as number} />
+          <NotCompatInfo activeTabId={activeTab?.id as number} />
         )}
+
+        <div className="flex justify-center">
+          <BuyMeACoffeeButton />
+        </div>
       </div>
 
       <Footer />
