@@ -69,12 +69,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload to Chrome Web Store
-        uses: mobilefirstllc/cws-publish@latest
-        with:
-          action: 'upload'
-          client_id: ${{ secrets.GOOGLE_CLIENT_ID }}
-          client_secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          refresh_token: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
-          extension_id: ${{ secrets.EDHS_EXT_ID }}
-          zip_file: './dist/EDHS_${{ github.ref_name }}.zip'
+      # - name: Upload to Chrome Web Store
+      #   uses: mobilefirstllc/cws-publish@latest
+      #   with:
+      #     action: 'upload'
+      #     client_id: ${{ secrets.GOOGLE_CLIENT_ID }}
+      #     client_secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+      #     refresh_token: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+      #     extension_id: ${{ secrets.EDHS_EXT_ID }}
+      #     zip_file: './dist/EDHS_${{ github.ref_name }}.zip'

@@ -66,7 +66,7 @@ const getStyleSheet = async () => {
     edgeStyle: EdgeStyleOptions[selectedOptions.edgeStyle?.style],
   }
 
-  styleCSS.textContent += '.shaka-text-container {display: flex !important;}'
+  // styleCSS.textContent += '.shaka-text-container {display: flex !important;}'
 
   if (selectedOptions) {
     // Change Subtitle Font
@@ -113,7 +113,7 @@ const getStyleSheet = async () => {
   // Arrange Position of Subtitle
   styleCSS.textContent += `${
     VideoClassSelector.subtitleTextContainer
-  } {bottom: ${selectedOpt.fontPosition + 10}% !important;}`
+  } {bottom: ${selectedOpt.fontPosition}% !important;}`
 
   if (selectedOpt.fontSize) {
     styleCSS.textContent += `${
@@ -147,8 +147,8 @@ const getStyleSheet = async () => {
 
   const resetStyleSheet = document.createElement('style')
   resetStyleSheet.id = 'enhancedDHS-reset'
-  resetStyleSheet.textContent +=
-    '.shaka-text-container {display: none !important;}'
+  // resetStyleSheet.textContent +=
+  //   '.shaka-text-container {display: none !important;}'
   document.head.append(resetStyleSheet)
   document.head.append(await getStyleSheet())
 })()

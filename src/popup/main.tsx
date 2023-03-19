@@ -266,9 +266,9 @@ const App = () => {
                 <input
                   type="range"
                   className="col-span-10 w-full"
-                  min={-10}
+                  min={0}
                   max={10}
-                  step={1}
+                  step={0.5}
                   value={selectedOpt.fontPosition}
                   onChange={(e) => {
                     fontPosition(parseInt(e.target.value))
